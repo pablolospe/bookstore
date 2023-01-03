@@ -29,6 +29,7 @@ export default function Create() {
         title: {
             fontSize: '16px',
             textAlign: 'left',
+            color: 'white',
         },
         input: {
             padding: '10px',
@@ -37,7 +38,17 @@ export default function Create() {
         }
     }
 
+    const buttonStyle = {
+        padding: '15px 20px',
+        minWidth: '200px',
+        border: 'none',
+        borderRadius: '5px',
+        backgroundColor: '#1e9638',
+        color: 'white',
+        fontWeight: 'bolder',
+        fontSize: '18px'
 
+    }
 
 
     function handleChange(e) {
@@ -109,30 +120,36 @@ export default function Create() {
                     style={inputStyles.input}
                 />
             </div>
-            <div>
-                <div>Author</div>
-                <input type='text' name="author" onChange={handleChange} value={author} />
+            <div style={inputStyles.container}>
+                <div style={inputStyles.title}>Author</div>
+                <input 
+                    type='text'
+                    name="author"
+                    onChange={handleChange}
+                    value={author}
+                    style={inputStyles.input}
+                />
             </div>
-            <div>
-                <div>Cover</div>
-                <input type='file' name="cover" onChange={handleOnChangeFile} />
+            <div style={inputStyles.container}>
+                <div style={inputStyles.title}>Cover</div>
+                <input type='file' name="cover" onChange={handleOnChangeFile} style={inputStyles.input}/>
                 <div>
                     {!!cover ? <img src={cover} width='200' alt='preview' /> : ""}
                 </div>
             </div>
-            <div>
-                <div>Introduction</div>
-                <input type='text' name="intro" onChange={handleChange} value={intro} />
+            <div  style={inputStyles.container}>
+                <div style={inputStyles.title}>Introduction</div>
+                <input type='text' name="intro" onChange={handleChange} value={intro} style={inputStyles.input}/>
             </div>
-            <div>
-                <div>Completed</div>
-                <input type='checkbox' name="completed" onChange={handleChange} value={completed} />
+            <div style={inputStyles.container}>
+                <div style={inputStyles.title}>Completed</div>
+                <input type='checkbox' name="completed" onChange={handleChange} value={completed}/>
             </div>
-            <div>
-                <div>Review</div>
-                <input type='text' name="review" onChange={handleChange} value={review} />
+            <div style={inputStyles.container}>
+                <div style={inputStyles.title}>Review</div>
+                <input type='text' name="review" onChange={handleChange} value={review} style={inputStyles.input}/>
             </div>
-            <input type='submit' value='Register book' />
+            <input type='submit' value='Register book' style={buttonStyle} />
         </form>
     </Layout>
 }
